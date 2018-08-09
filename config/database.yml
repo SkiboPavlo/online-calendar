@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+
+development:
+  <<: *default
+  database: online-calendar_development
+
+test:
+  <<: *default
+  database: online-calendar_test
+
+production:
+  <<: *default
+  database: online-calendar_production
