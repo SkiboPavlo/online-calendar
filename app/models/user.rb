@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :calendars
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github linkedin]

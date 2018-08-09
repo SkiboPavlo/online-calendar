@@ -8,13 +8,13 @@ class CalendarsController < ApplicationController
   def show; end
 
   def new
-    @calendar = Calendar.new
+    @calendar = current_user.calendars.new
   end
 
   def edit; end
 
   def create
-    @calendar = Calendar.new(calendar_params)
+    @calendar = current_user.calendars.new(calendar_params)
 
     respond_to do |format|
       if @calendar.save
@@ -54,6 +54,6 @@ class CalendarsController < ApplicationController
   end
 
   def calendar_params
-    params.require(:calendar).permit(:status)
+    params.require(:calendar).permit(:status, :user_id)
   end
 end
