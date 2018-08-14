@@ -31,3 +31,8 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
+gem 'fullcalendar-rails'
+gem 'bootstrap-daterangepicker-rails', '~> 3.0', '>= 3.0.3'
