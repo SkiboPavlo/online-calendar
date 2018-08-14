@@ -54,6 +54,6 @@ class CalendarsController < ApplicationController
   end
 
   def calendar_params
-    params.require(:calendar).permit(:status, :user_id)
+    params.require(:calendar).permit(:name, :status, :user_id)
   end
 end
