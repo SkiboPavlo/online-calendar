@@ -2,20 +2,23 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    calendar = Calendar.find(params[:calendar_id])
+    calendar = Calendar.find params[:calendar_id]
     @events = calendar.events.where(start: params[:start]..params[:end])
   end
 
   def show; end
 
   def new
-    @event = Event.new
+    # @event = Event.new
+    calendar = Calendar.find params[:calendar_id]
+    @event = calendar.events.new
   end
 
   def edit; end
 
   def create
-    @event = Event.new(event_params)
+    calendar = Calendar.find params[:calendar_id]
+    @event = calendar.events.new(event_params)
     @event.save
   end
 

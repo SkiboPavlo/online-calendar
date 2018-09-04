@@ -1,5 +1,6 @@
 class CalendarsController < ApplicationController
-  before_action :set_calendar, only: %i[show edit update destroy]
+  before_action :set_calendar, only: %i[show edit update destroy collective_status
+                                        personal_status]
 
   def index
     @calendars = Calendar.all
@@ -45,6 +46,16 @@ class CalendarsController < ApplicationController
       format.html { redirect_to calendars_url, notice: 'Calendar was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def collective_status
+    @calendar.collective_status
+    redirect_to root_path
+  end
+
+  def personal_status
+    @calendar.personal_status
+    redirect_to root_path
   end
 
   private
